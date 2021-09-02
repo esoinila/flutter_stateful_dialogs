@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(StateFullWidgetTestApp());
 }
 
-class MyApp extends StatelessWidget {
+class StateFullWidgetTestApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'StateFullWidgetTestApp',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -30,23 +30,21 @@ class _MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
 
   void cyclePagesForward() {
-    print('Forward');
     setState(() {
       if (currentPage < tutorialPages.length - 1) {
         currentPage++;
       } else {
-        currentPage = 0;
+        //currentPage = 0;
       }
     });
   }
 
   void cyclePagesBackward() {
-    print('Backward');
     setState(() {
       if (currentPage > 0) {
         currentPage--;
       } else {
-        currentPage = tutorialPages.length - 1;
+        //currentPage = tutorialPages.length - 1;
       }
     });
   }
@@ -67,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   )),
               actions: <Widget>[
                 TextButton(
-                  child: Text('Previous'),
+                  child: Text('Edellinen'),
                   onPressed: () {
                     setState(() {
                       cyclePagesBackward();
@@ -76,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 TextButton(
-                  child: Text('Next'),
+                  child: Text('Seuraava'),
                   onPressed: () {
                     setState(() {
                       cyclePagesForward();
@@ -85,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 TextButton(
-                  child: Text('Dismiss'),
+                  child: Text('Sulje Dialogi'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
@@ -104,28 +102,25 @@ class _MyHomePageState extends State<MyHomePage> {
         Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.'),
         Text('Tila ruutuun pääset tila-tabista'),
         Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
-        Icon(
-          Icons.record_voice_over_rounded,
-          size: 24.0,
-        ),
       ],
     ),
     Column(
       children: [
-        Text('Second page of tutorial'),
-        Icon(
-          Icons.airline_seat_individual_suite,
-          size: 24.0,
-        ),
+        Text('Info-ruutu'),
+        Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 200, width: 200),
+        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.'),
+        Text('Info ruutuun pääset info-tabista'),
+        Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
     Column(
       children: [
-        Text('Third page of tutorial'),
-        Icon(
-          Icons.donut_small_rounded,
-          size: 24.0,
-        ),
+        Text('Tuki-ruutu'),
+        Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 200, width: 200),
+        Text(
+            'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.'),
+        Text('Tuki ruutuun pääset tuki-tabista'),
+        Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
   ];
@@ -134,17 +129,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Stateful Dialog"),
+        title: Text("Tutoriaali Demo"),
       ),
       body: Container(
         child: Center(
           child: TextButton(
-              //color: Colors.deepOrange,
               onPressed: () async {
                 await showInformationDialog(context);
               },
               child: Text(
-                "Stateful Dialog",
+                "Avaa Tutoriaali",
                 style: TextStyle(color: Colors.black, fontSize: 16),
               )),
         ),
