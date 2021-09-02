@@ -26,56 +26,83 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  List<Widget> myContent = <Widget>[Text('First info'), Text('Second info'), Text('Third info')];
+  int currentInfo = 0;
+
   Future<void> showInformationDialog(BuildContext context) async {
-    return await showDialog(context: context,
-    builder: (context){
-      final TextEditingController _textEditingController = TextEditingController();
-      bool isChecked = false;
-      return StatefulBuilder(builder: (context,setState){
-        return AlertDialog(
-          content: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextFormField(
-                    controller: _textEditingController,
-                    validator: (value){
-                      return value.isNotEmpty ? null : "Invalid Field";
-                    },
-                    decoration: InputDecoration(hintText: "Enter Some Text"),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return await showDialog(
+        context: context,
+        builder: (context) {
+          final TextEditingController _textEditingController = TextEditingController();
+          bool isChecked = false;
+          return StatefulBuilder(builder: (context, setState) {
+            return AlertDialog(
+              content: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text("Choice Box"),
-                      Checkbox(value: isChecked, onChanged: (checked){
-                        setState((){
-                          isChecked = checked;
-                        });
-                      })
+                      myContent[currentInfo],
+                      //Text('Just testing'),
+                      TextFormField(
+                        controller: _textEditingController,
+                        validator: (value) {
+                          return value.isNotEmpty ? null : "Invalid Field";
+                        },
+                        decoration: InputDecoration(hintText: "Enter Some Text"),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Choice Box"),
+                          Checkbox(
+                              value: isChecked,
+                              onChanged: (checked) {
+                                setState(() {
+                                  isChecked = checked;
+                                });
+                              })
+                        ],
+                      )
                     ],
-                  )
-                ],
-              )),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Okay'),
-              onPressed: (){
-                if(_formKey.currentState.validate()){
-                  // Do something like updating SharedPreferences or User Settings etc.
-                  Navigator.of(context).pop();
-                }
-              },
-            ),
-          ],
-        );
-      });
-    });
-}
+                  )),
+              actions: <Widget>[
+                TextButton(
+                  child: Text('Okay'),
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {
+                      // Do something like updating SharedPreferences or User Settings etc.
+                      Navigator.of(context).pop();
+                    }
+                  },
+                ),
+                TextButton(
+                  child: Text('Previous'),
+                  onPressed: () {
+                    // Do something like updating SharedPreferences or User Settings etc.
+                    setState(() {
+                      currentInfo--;
+                      print('currentInfo is $currentInfo');
+                    });
+                  },
+                ),
+                TextButton(
+                  child: Text('Next'),
+                  onPressed: () {
+                    // Do something like updating SharedPreferences or User Settings etc.
+                    setState(() {
+                      currentInfo++;
+                      print('currentInfo is $currentInfo');
+                    });
+                  },
+                ),
+              ],
+            );
+          });
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
