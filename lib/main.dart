@@ -28,8 +28,30 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  List<Widget> myContent = <Widget>[Text('First info'), Text('Second info'), Text('Third info')];
-  int currentInfo = 0;
+  //List<Widget> myContent = <Widget>[Text('First info'), Text('Second info'), Text('Third info')];
+  int currentPage = 0;
+
+  void cyclePagesForward() {
+    print('Forward');
+    setState(() {
+      if (currentPage < tutorialPages.length - 1) {
+        currentPage++;
+      } else {
+        currentPage = 0;
+      }
+    });
+  }
+
+  void cyclePagesBackward() {
+    print('Backward');
+    setState(() {
+      if (currentPage > 0) {
+        currentPage--;
+      } else {
+        currentPage = tutorialPages.length - 1;
+      }
+    });
+  }
 
   Future<void> showInformationDialog(BuildContext context) async {
     return await showDialog(
@@ -44,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      myContent[currentInfo],
+                      tutorialPages[currentPage],
                       //Text('Just testing'),
                       TextFormField(
                         controller: _textEditingController,
@@ -83,8 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // Do something like updating SharedPreferences or User Settings etc.
                     setState(() {
-                      currentInfo--;
-                      print('currentInfo is $currentInfo');
+                      currentPage--;
+                      print('currentInfo is $currentPage');
                     });
                   },
                 ),
@@ -93,8 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     // Do something like updating SharedPreferences or User Settings etc.
                     setState(() {
-                      currentInfo++;
-                      print('currentInfo is $currentInfo');
+                      currentPage++;
+                      print('currentInfo is $currentPage');
                     });
                   },
                 ),
@@ -103,6 +125,36 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         });
   }
+
+  final List<Widget> tutorialPages = <Widget>[
+    Column(
+      children: [
+        Text('First page of tutorial'),
+        Icon(
+          Icons.record_voice_over_rounded,
+          size: 24.0,
+        ),
+      ],
+    ),
+    Column(
+      children: [
+        Text('Second page of tutorial'),
+        Icon(
+          Icons.airline_seat_individual_suite,
+          size: 24.0,
+        ),
+      ],
+    ),
+    Column(
+      children: [
+        Text('Third page of tutorial'),
+        Icon(
+          Icons.donut_small_rounded,
+          size: 24.0,
+        ),
+      ],
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
