@@ -99,8 +99,11 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> tutorialPages = <Widget>[
     Column(
       children: [
-        Image.asset('lib/images/tutorial_1.png'),
+        Text('Tila-ruutu'),
+        Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 200, width: 200),
         Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.'),
+        Text('Tila ruutuun pääset tila-tabista'),
+        Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
         Icon(
           Icons.record_voice_over_rounded,
           size: 24.0,
