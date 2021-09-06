@@ -33,8 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       if (currentPage < tutorialPages.length - 1) {
         currentPage++;
-      } else {
-        //currentPage = 0;
       }
     });
   }
@@ -43,8 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       if (currentPage > 0) {
         currentPage--;
-      } else {
-        //currentPage = tutorialPages.length - 1;
       }
     });
   }
