@@ -13,7 +13,7 @@ class _TipSwiperState extends State<TipSwiper> {
 
   void cyclePagesForward() {
     setState(() {
-      if (currentPage < tutorialPages.length - 1) {
+      if (currentPage < tutorialPagesTop.length - 1) {
         currentPage++;
       } else {
         Navigator.of(context).pop();
@@ -55,37 +55,53 @@ class _TipSwiperState extends State<TipSwiper> {
         horizontalThreshold: 40.0,
         swipeDetectionBehavior: SwipeDetectionBehavior.continuousDistinct,
       ),
-      child: Column(
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(_text),
-              tutorialPages[currentPage],
-            ],
-          ),
-          Row(
-            children: [
-              TextButton(
-                child: Text('Sulje Dialogi'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(_text),
+                tutorialPagesTop[currentPage],
+              ],
+            ),
+            _currentPageIndicator(),
+            tutorialPagesBottom[currentPage],
+          ],
+        ),
       ),
     ));
   }
 
-  final List<Widget> tutorialPages = <Widget>[
+  Widget _currentPageIndicator() {
+    List<Widget> myWidgetList = [];
+    for (int i = 0; i < tutorialPagesTop.length; i++) {
+      if (i == currentPage) {
+        myWidgetList.add(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.circle_outlined),
+          ),
+        );
+      } else {
+        myWidgetList.add(
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(Icons.circle),
+          ),
+        );
+      }
+    }
+    return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: myWidgetList);
+  }
+
+  final List<Widget> tutorialPagesTop = <Widget>[
     Column(
       children: [
         Text('Tila-ruutu'),
         Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-        Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.'),
-        Text('Tila ruutuun pääset tila-tabista'),
         Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
@@ -93,8 +109,6 @@ class _TipSwiperState extends State<TipSwiper> {
       children: [
         Text('Info-ruutu'),
         Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.'),
-        Text('Info ruutuun pääset info-tabista'),
         Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
@@ -102,10 +116,29 @@ class _TipSwiperState extends State<TipSwiper> {
       children: [
         Text('Tuki-ruutu'),
         Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 200, width: 200),
+        Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+      ],
+    ),
+  ];
+
+  final List<Widget> tutorialPagesBottom = <Widget>[
+    Column(
+      children: [
+        Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.'),
+        Text('Tila ruutuun pääset tila-tabista'),
+      ],
+    ),
+    Column(
+      children: [
+        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.'),
+        Text('Info ruutuun pääset info-tabista'),
+      ],
+    ),
+    Column(
+      children: [
         Text(
             'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.'),
         Text('Tuki ruutuun pääset tuki-tabista'),
-        Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
   ];
