@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'tip_swiper.dart';
+
 void main() {
   runApp(StateFullWidgetTestApp());
 }
@@ -128,16 +130,17 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Tutoriaali Demo"),
       ),
       body: Container(
-        child: Center(
-          child: TextButton(
+        child: Center(child: TipSwiper()
+
+            /*TextButton(
               onPressed: () async {
                 await showInformationDialog(context);
               },
               child: Text(
                 "Avaa Tutoriaali",
                 style: TextStyle(color: Colors.black, fontSize: 16),
-              )),
-        ),
+              )),*/
+            ),
       ),
     );
   }
