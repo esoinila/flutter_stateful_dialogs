@@ -15,6 +15,8 @@ class _TipSwiperState extends State<TipSwiper> {
     setState(() {
       if (currentPage < tutorialPages.length - 1) {
         currentPage++;
+      } else {
+        Navigator.of(context).pop();
       }
     });
   }
@@ -64,24 +66,6 @@ class _TipSwiperState extends State<TipSwiper> {
           ),
           Row(
             children: [
-              TextButton(
-                child: Text('Edellinen'),
-                onPressed: () {
-                  setState(() {
-                    cyclePagesBackward();
-                    print('currentInfo is $currentPage');
-                  });
-                },
-              ),
-              TextButton(
-                child: Text('Seuraava'),
-                onPressed: () {
-                  setState(() {
-                    cyclePagesForward();
-                    print('currentInfo is $currentPage');
-                  });
-                },
-              ),
               TextButton(
                 child: Text('Sulje Dialogi'),
                 onPressed: () {
