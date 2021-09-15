@@ -29,18 +29,6 @@ class _TipSwiperState extends State<TipSwiper> {
 
   String _text = 'Swipe me!';
 
-  void _onVerticalSwipe(SwipeDirection direction) {
-    setState(() {
-      if (direction == SwipeDirection.up) {
-        _text = 'Swiped up!';
-        print('Swiped up!');
-      } else {
-        _text = 'Swiped down!';
-        print('Swiped down!');
-      }
-    });
-  }
-
   void _onHorizontalSwipe(SwipeDirection direction) {
     setState(() {
       if (direction == SwipeDirection.left) {
@@ -55,28 +43,11 @@ class _TipSwiperState extends State<TipSwiper> {
     });
   }
 
-  void _onLongPress() {
-    setState(() {
-      _text = 'Long pressed!';
-      print('Long pressed!');
-    });
-  }
-
-  void _onTap() {
-    setState(() {
-      _text = 'Tapped!';
-      print('Tapped!');
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
         child: SimpleGestureDetector(
-      onVerticalSwipe: _onVerticalSwipe,
       onHorizontalSwipe: _onHorizontalSwipe,
-      onLongPress: _onLongPress,
-      onTap: _onTap,
       swipeConfig: SimpleSwipeConfig(
         verticalThreshold: 40.0,
         horizontalThreshold: 40.0,
