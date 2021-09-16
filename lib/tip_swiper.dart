@@ -93,7 +93,7 @@ class _TipSwiperState extends State<TipSwiper> {
           ),
         );
       } else {
-        // buttoneiksi tähän
+        // buttoneiksi tässä
         myWidgetList.add(
           InkWell(
             onTap: () {
