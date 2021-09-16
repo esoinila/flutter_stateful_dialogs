@@ -14,7 +14,7 @@ class _TipSwiperState extends State<TipSwiper> {
 
   void cyclePagesForward() {
     setState(() {
-      if (currentPage < tutorialPagesTop.length - 1) {
+      if (currentPage < tutorialPages.length - 1) {
         currentPage++;
       } else {
         Navigator.of(context).pop();
@@ -61,11 +61,11 @@ class _TipSwiperState extends State<TipSwiper> {
             Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                tutorialPagesTop[currentPage],
+                tutorialPages[currentPage].topWidget,
               ],
             ),
             _currentPageIndicator(),
-            Expanded(child: tutorialPagesBottom[currentPage]),
+            Expanded(child: tutorialPages[currentPage].bottomWidget),
           ],
         ),
       ),
@@ -74,7 +74,7 @@ class _TipSwiperState extends State<TipSwiper> {
 
   Widget _currentPageIndicator() {
     List<Widget> myWidgetList = [];
-    for (int i = 0; i < tutorialPagesTop.length; i++) {
+    for (int i = 0; i < tutorialPages.length; i++) {
       if (i == currentPage) {
         myWidgetList.add(
           Padding(
@@ -174,85 +174,6 @@ class _TipSwiperState extends State<TipSwiper> {
           Text('Tuki ruutuun pääset tuki-tabista', style: TextStyle(color: Colors.white)),
         ],
       ),
-    ),
-  ];
-
-  final List<Widget> tutorialPagesTop = <Widget>[
-    Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text('Tila-ruutu', style: TextStyle(color: Colors.white)),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/tutorial_1.png',
-              fit: BoxFit.fitHeight, height: 200, width: 200),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
-        ),
-      ],
-    ),
-    Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text('Info-ruutu', style: TextStyle(color: Colors.white)),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/tutorial_2.png',
-              fit: BoxFit.fitHeight, height: 200, width: 200),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/Tiedotteet.png',
-              fit: BoxFit.fitHeight, height: 60, width: 60),
-        ),
-      ],
-    ),
-    Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/tutorial_3.png',
-              fit: BoxFit.fitHeight, height: 200, width: 200),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
-        ),
-      ],
-    ),
-  ];
-
-  final List<Widget> tutorialPagesBottom = <Widget>[
-    Column(
-      children: [
-        Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.',
-            style: TextStyle(color: Colors.white)),
-        Text('Tila ruutuun pääset tila-tabista', style: TextStyle(color: Colors.white)),
-      ],
-    ),
-    Column(
-      children: [
-        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.',
-            style: TextStyle(color: Colors.white)),
-        Text('Info ruutuun pääset info-tabista', style: TextStyle(color: Colors.white)),
-      ],
-    ),
-    Column(
-      children: [
-        Text('Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.',
-            style: TextStyle(color: Colors.white)),
-        Text('Tuki ruutuun pääset tuki-tabista', style: TextStyle(color: Colors.white)),
-      ],
     ),
   ];
 }
