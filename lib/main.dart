@@ -7,7 +7,6 @@ void main() {
 }
 
 class StateFullWidgetTestApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final newTextTheme = Theme.of(context).textTheme.apply(

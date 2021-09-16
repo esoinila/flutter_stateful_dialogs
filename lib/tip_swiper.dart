@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stateful_dialogs/tutorial_page.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 
 class TipSwiper extends StatefulWidget {
@@ -29,17 +30,13 @@ class _TipSwiperState extends State<TipSwiper> {
     });
   }
 
-  String _text = 'Swipe me!';
-
   void _onHorizontalSwipe(SwipeDirection direction) {
     setState(() {
       if (direction == SwipeDirection.left) {
         cyclePagesForward();
-        _text = 'Swiped left!';
         print('Swiped left!');
       } else {
         cyclePagesBackward();
-        _text = 'Swiped right!';
         print('Swiped right!');
       }
     });
@@ -96,6 +93,89 @@ class _TipSwiperState extends State<TipSwiper> {
     }
     return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: myWidgetList);
   }
+
+  final List<TutorialPage> tutorialPages = <TutorialPage>[
+    TutorialPage(
+      topWidget: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text('Tila-ruutu', style: TextStyle(color: Colors.white)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/tutorial_1.png',
+                fit: BoxFit.fitHeight, height: 200, width: 200),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+          ),
+        ],
+      ),
+      bottomWidget: Column(
+        children: [
+          Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.',
+              style: TextStyle(color: Colors.white)),
+          Text('Tila ruutuun pääset tila-tabista', style: TextStyle(color: Colors.white)),
+        ],
+      ),
+    ),
+    TutorialPage(
+      topWidget: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text('Info-ruutu', style: TextStyle(color: Colors.white)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/tutorial_2.png',
+                fit: BoxFit.fitHeight, height: 200, width: 200),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/Tiedotteet.png',
+                fit: BoxFit.fitHeight, height: 60, width: 60),
+          ),
+        ],
+      ),
+      bottomWidget: Column(
+        children: [
+          Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.',
+              style: TextStyle(color: Colors.white)),
+          Text('Info ruutuun pääset info-tabista', style: TextStyle(color: Colors.white)),
+        ],
+      ),
+    ),
+    TutorialPage(
+      topWidget: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/tutorial_3.png',
+                fit: BoxFit.fitHeight, height: 200, width: 200),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+          ),
+        ],
+      ),
+      bottomWidget: Column(
+        children: [
+          Text(
+              'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.',
+              style: TextStyle(color: Colors.white)),
+          Text('Tuki ruutuun pääset tuki-tabista', style: TextStyle(color: Colors.white)),
+        ],
+      ),
+    ),
+  ];
 
   final List<Widget> tutorialPagesTop = <Widget>[
     Column(
