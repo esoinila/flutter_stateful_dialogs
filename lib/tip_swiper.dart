@@ -62,9 +62,8 @@ class _TipSwiperState extends State<TipSwiper> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Text(_text),
                 tutorialPagesTop[currentPage],
               ],
             ),
