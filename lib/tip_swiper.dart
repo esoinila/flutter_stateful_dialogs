@@ -100,23 +100,54 @@ class _TipSwiperState extends State<TipSwiper> {
   final List<Widget> tutorialPagesTop = <Widget>[
     Column(
       children: [
-        Text('Tila-ruutu', style: TextStyle(color: Colors.white)),
-        Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-        Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text('Tila-ruutu', style: TextStyle(color: Colors.white)),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/tutorial_1.png',
+              fit: BoxFit.fitHeight, height: 200, width: 200),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+        ),
       ],
     ),
     Column(
       children: [
-        Text('Info-ruutu', style: TextStyle(color: Colors.white)),
-        Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-        Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text('Info-ruutu', style: TextStyle(color: Colors.white)),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/tutorial_2.png',
+              fit: BoxFit.fitHeight, height: 200, width: 200),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/Tiedotteet.png',
+              fit: BoxFit.fitHeight, height: 60, width: 60),
+        ),
       ],
     ),
     Column(
       children: [
-        Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
-        Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-        Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/tutorial_3.png',
+              fit: BoxFit.fitHeight, height: 200, width: 200),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+        ),
       ],
     ),
   ];
