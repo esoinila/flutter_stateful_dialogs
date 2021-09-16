@@ -82,14 +82,14 @@ class _TipSwiperState extends State<TipSwiper> {
         myWidgetList.add(
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.circle_outlined, color: Colors.white),
+            child: Icon(Icons.circle, color: Colors.white70),
           ),
         );
       } else {
         myWidgetList.add(
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.circle, color: Colors.white),
+            child: Icon(Icons.circle, color: Colors.white24),
           ),
         );
       }
