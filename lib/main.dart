@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> showInformationDialog(BuildContext context) async {
     return await showDialog(
-        barrierColor: Colors.white10,
+        barrierColor: Colors.white30,
         context: context,
         builder: (context) {
           return StatefulBuilder(builder: (context, setState) {
