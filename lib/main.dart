@@ -43,14 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
             return AlertDialog(
               backgroundColor: Colors.black,
               content: TipSwiper(),
-              /*actions: <Widget>[
-                TextButton(
-                  child: Text('Sulje Dialogi'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],*/
             );
           });
         });
@@ -59,22 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Tutoriaali Demo"),
+        title: Text("AlertDialog with state"),
       ),
       body: Container(
         child: Center(
-          child: //TipSwiper()
-
-              TextButton(
-                  onPressed: () async {
-                    await showInformationDialog(context);
-                  },
-                  child: Text(
-                    "Avaa Tutoriaali",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  )),
+          child: TextButton(
+              onPressed: () async {
+                await showInformationDialog(context);
+              },
+              child: Text(
+                "Avaa Dialogi",
+                style: TextStyle(color: Colors.white, fontSize: 16),
+              )),
         ),
       ),
     );
