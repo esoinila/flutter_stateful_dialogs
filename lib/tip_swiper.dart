@@ -58,6 +58,7 @@ class _TipSwiperState extends State<TipSwiper> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Column(
@@ -68,7 +69,7 @@ class _TipSwiperState extends State<TipSwiper> {
               ],
             ),
             _currentPageIndicator(),
-            tutorialPagesBottom[currentPage],
+            Expanded(child: tutorialPagesBottom[currentPage]),
           ],
         ),
       ),
@@ -100,21 +101,21 @@ class _TipSwiperState extends State<TipSwiper> {
   final List<Widget> tutorialPagesTop = <Widget>[
     Column(
       children: [
-        Text('Tila-ruutu'),
+        Text('Tila-ruutu', style: TextStyle(color: Colors.white)),
         Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 200, width: 200),
         Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
     Column(
       children: [
-        Text('Info-ruutu'),
+        Text('Info-ruutu', style: TextStyle(color: Colors.white)),
         Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 200, width: 200),
         Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
     ),
     Column(
       children: [
-        Text('Tuki-ruutu'),
+        Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
         Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 200, width: 200),
         Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
       ],
@@ -124,21 +125,23 @@ class _TipSwiperState extends State<TipSwiper> {
   final List<Widget> tutorialPagesBottom = <Widget>[
     Column(
       children: [
-        Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.'),
-        Text('Tila ruutuun pääset tila-tabista'),
+        Text('Tila-ruudussa näet verkon tilan ja GeoTrimmiin liittyviä tweettejä.',
+            style: TextStyle(color: Colors.white)),
+        Text('Tila ruutuun pääset tila-tabista', style: TextStyle(color: Colors.white)),
       ],
     ),
     Column(
       children: [
-        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.'),
-        Text('Info ruutuun pääset info-tabista'),
+        Text('Info ruudussa voit tutustua Geotrimmin ratkaisuiden käyttökohteisiin.',
+            style: TextStyle(color: Colors.white)),
+        Text('Info ruutuun pääset info-tabista', style: TextStyle(color: Colors.white)),
       ],
     ),
     Column(
       children: [
-        Text(
-            'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.'),
-        Text('Tuki ruutuun pääset tuki-tabista'),
+        Text('Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.',
+            style: TextStyle(color: Colors.white)),
+        Text('Tuki ruutuun pääset tuki-tabista', style: TextStyle(color: Colors.white)),
       ],
     ),
   ];
