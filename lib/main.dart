@@ -34,6 +34,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Future<void> showInformationDialog(BuildContext context) async {
+    return await showDialog(
+        context: context,
+        builder: (context) {
+          return StatefulBuilder(builder: (context, setState) {
+            return AlertDialog(
+              content: TipSwiper(),
+              actions: <Widget>[
+                TextButton(
+                  child: Text('Sulje Dialogi'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          });
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,17 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Tutoriaali Demo"),
       ),
       body: Container(
-        child: Center(child: TipSwiper()
+        child: Center(
+          child: //TipSwiper()
 
-            /*TextButton(
-              onPressed: () async {
-                await showInformationDialog(context);
-              },
-              child: Text(
-                "Avaa Tutoriaali",
-                style: TextStyle(color: Colors.black, fontSize: 16),
-              )),*/
-            ),
+              TextButton(
+                  onPressed: () async {
+                    await showInformationDialog(context);
+                  },
+                  child: Text(
+                    "Avaa Tutoriaali",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  )),
+        ),
       ),
     );
   }
