@@ -30,6 +30,16 @@ class _TipSwiperState extends State<TipSwiper> {
     });
   }
 
+  void goToSpecificPage(int wantedPage) {
+    if (wantedPage < tutorialPages.length) {
+      if (wantedPage >= 0) {
+        setState(() {
+          currentPage = wantedPage;
+        });
+      }
+    }
+  }
+
   void _onHorizontalSwipe(SwipeDirection direction) {
     setState(() {
       if (direction == SwipeDirection.left) {
@@ -83,10 +93,17 @@ class _TipSwiperState extends State<TipSwiper> {
           ),
         );
       } else {
+        // buttoneiksi tähän
         myWidgetList.add(
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.circle, color: Colors.white24),
+          InkWell(
+            onTap: () {
+              print('Dot got tapped');
+              goToSpecificPage(i);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.circle, color: Colors.white24),
+            ),
           ),
         );
       }
