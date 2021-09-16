@@ -41,15 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (context) {
           return StatefulBuilder(builder: (context, setState) {
             return AlertDialog(
+              backgroundColor: Colors.black,
               content: TipSwiper(),
-              actions: <Widget>[
+              /*actions: <Widget>[
                 TextButton(
                   child: Text('Sulje Dialogi'),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
                 ),
-              ],
+              ],*/
             );
           });
         });
