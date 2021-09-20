@@ -66,10 +66,12 @@ class _TipSwiperState extends State<TipSwiper> {
         children: [
           Flexible(
             flex: 19,
-            child: Column(
-              children: [
-                tutorialPages[currentPage].topWidget,
-              ],
+            child: Expanded(
+              child: Column(
+                children: [
+                  tutorialPages[currentPage].topWidget,
+                ],
+              ),
             ),
           ),
           Flexible(flex: 2, child: _currentPageIndicator()),
@@ -114,8 +116,8 @@ class _TipSwiperState extends State<TipSwiper> {
     TutorialPage(
       topWidget: Column(
         children: [
-          Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-          Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+          Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 400, width: 400),
+          Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 90, width: 90),
         ],
       ),
       bottomWidget: Column(
@@ -130,8 +132,8 @@ class _TipSwiperState extends State<TipSwiper> {
     TutorialPage(
       topWidget: Column(
         children: [
-          Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-          Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+          Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 400, width: 400),
+          Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 90, width: 90),
         ],
       ),
       bottomWidget: Column(
@@ -146,8 +148,8 @@ class _TipSwiperState extends State<TipSwiper> {
     TutorialPage(
       topWidget: Column(
         children: [
-          Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 200, width: 200),
-          Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 60, width: 60),
+          Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 400, width: 400),
+          Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 90, width: 90),
         ],
       ),
       bottomWidget: Column(
