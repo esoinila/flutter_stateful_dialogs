@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stateful_dialogs/tutorial_page.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 
+const double bigImageWidth = 200;
+const double bigImageHeight = 400;
+const double smallImageWidth = 90;
+const double smallImageHeight = 90;
+
 class TipSwiper extends StatefulWidget {
   const TipSwiper({Key key}) : super(key: key);
 
@@ -66,12 +71,10 @@ class _TipSwiperState extends State<TipSwiper> {
         children: [
           Flexible(
             flex: 19,
-            child: Expanded(
-              child: Column(
-                children: [
-                  tutorialPages[currentPage].topWidget,
-                ],
-              ),
+            child: Column(
+              children: [
+                tutorialPages[currentPage].topWidget,
+              ],
             ),
           ),
           Flexible(flex: 2, child: _currentPageIndicator()),
@@ -114,11 +117,20 @@ class _TipSwiperState extends State<TipSwiper> {
 
   final List<TutorialPage> tutorialPages = <TutorialPage>[
     TutorialPage(
-      topWidget: Column(
-        children: [
-          Image.asset('lib/images/tutorial_1.png', fit: BoxFit.fitHeight, height: 400, width: 400),
-          Image.asset('lib/images/Tila.png', fit: BoxFit.fitHeight, height: 90, width: 90),
-        ],
+      topWidget: Flexible(
+        fit: FlexFit.loose,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Flexible(
+              fit: FlexFit.loose,
+              child: Image.asset('lib/images/tutorial_1.png',
+                  fit: BoxFit.contain, height: bigImageHeight, width: bigImageWidth),
+            ),
+            Image.asset('lib/images/Tila.png',
+                fit: BoxFit.contain, height: smallImageHeight, width: smallImageWidth),
+          ],
+        ),
       ),
       bottomWidget: Column(
         children: [
@@ -132,8 +144,10 @@ class _TipSwiperState extends State<TipSwiper> {
     TutorialPage(
       topWidget: Column(
         children: [
-          Image.asset('lib/images/tutorial_2.png', fit: BoxFit.fitHeight, height: 400, width: 400),
-          Image.asset('lib/images/Tiedotteet.png', fit: BoxFit.fitHeight, height: 90, width: 90),
+          Image.asset('lib/images/tutorial_2.png',
+              fit: BoxFit.fitHeight, height: bigImageHeight, width: bigImageWidth),
+          Image.asset('lib/images/Tiedotteet.png',
+              fit: BoxFit.fitHeight, height: smallImageHeight, width: smallImageWidth),
         ],
       ),
       bottomWidget: Column(
@@ -148,8 +162,10 @@ class _TipSwiperState extends State<TipSwiper> {
     TutorialPage(
       topWidget: Column(
         children: [
-          Image.asset('lib/images/tutorial_3.png', fit: BoxFit.fitHeight, height: 400, width: 400),
-          Image.asset('lib/images/Tuki.png', fit: BoxFit.fitHeight, height: 90, width: 90),
+          Image.asset('lib/images/tutorial_3.png',
+              fit: BoxFit.fitHeight, height: bigImageHeight, width: bigImageWidth),
+          Image.asset('lib/images/Tuki.png',
+              fit: BoxFit.fitHeight, height: smallImageHeight, width: smallImageWidth),
         ],
       ),
       bottomWidget: Column(
