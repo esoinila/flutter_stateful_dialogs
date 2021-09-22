@@ -70,7 +70,7 @@ class _TipSwiperState extends State<TipSwiper> {
       child: Column(
         children: [
           Flexible(
-            flex: 19,
+            flex: 15,
             child: Column(
               children: [
                 Flexible(fit: FlexFit.loose, child: tutorialPages[currentPage].topWidget),
@@ -79,7 +79,8 @@ class _TipSwiperState extends State<TipSwiper> {
           ),
           Flexible(flex: 2, child: _currentPageIndicator()),
           Flexible(
-            flex: 6,
+            flex: 8,
+            fit: FlexFit.loose,
             child: tutorialPages[currentPage].bottomWidget,
           ),
         ],
