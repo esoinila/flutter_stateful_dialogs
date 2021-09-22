@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stateful_dialogs/tutorial_page.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 
-const double bigImageWidth = 200;
-const double bigImageHeight = 500;
-const double smallImageWidth = 90;
-const double smallImageHeight = 90;
+const double bigImageWidth = 180;
+const double bigImageHeight = 400;
+const double smallImageWidth = 50;
+const double smallImageHeight = 50;
 
 class TipSwiper extends StatefulWidget {
   const TipSwiper({Key key}) : super(key: key);
@@ -144,10 +144,10 @@ class _TipSwiperState extends State<TipSwiper> {
           Flexible(
             fit: FlexFit.loose,
             child: Image.asset('lib/images/tutorial_2.png',
-                fit: BoxFit.fitHeight, height: bigImageHeight, width: bigImageWidth),
+                fit: BoxFit.contain, height: bigImageHeight, width: bigImageWidth),
           ),
           Image.asset('lib/images/Tiedotteet.png',
-              fit: BoxFit.fitHeight, height: smallImageHeight, width: smallImageWidth),
+              fit: BoxFit.contain, height: smallImageHeight, width: smallImageWidth),
         ],
       ),
       bottomWidget: Column(
@@ -165,17 +165,17 @@ class _TipSwiperState extends State<TipSwiper> {
           Flexible(
             fit: FlexFit.loose,
             child: Image.asset('lib/images/tutorial_3.png',
-                fit: BoxFit.fitHeight, height: bigImageHeight, width: bigImageWidth),
+                fit: BoxFit.contain, height: bigImageHeight, width: bigImageWidth),
           ),
           Image.asset('lib/images/Tuki.png',
-              fit: BoxFit.fitHeight, height: smallImageHeight, width: smallImageWidth),
+              fit: BoxFit.contain, height: smallImageHeight, width: smallImageWidth),
         ],
       ),
       bottomWidget: Column(
         children: [
           Text('Tuki-ruutu', style: TextStyle(color: Colors.white)),
           Text(
-              'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera.',
+              'Tuki ruudussa on usein kysytyt kysymykset ja voit ottaa yhteyttä meihin kuvien kera. Entä jos onkin pitempi teksti tässä, niin tarvitaanko silloin flexfittiä tekstillekin?',
               style: TextStyle(color: Colors.white)),
           Text('Tuki ruutuun pääset tuki-tabista', style: TextStyle(color: Colors.white)),
         ],
